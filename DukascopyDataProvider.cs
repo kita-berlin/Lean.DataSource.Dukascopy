@@ -28,17 +28,10 @@ namespace QuantConnect.Lean.DataSource.MyCustom
     /// <summary>
     /// Implementation of Custom Data Provider
     /// </summary>
-    public class MyCustomDataProvider : SynchronizingHistoryProvider, IDataQueueHandler
+    public class DukascopyDataProvider : SynchronizingHistoryProvider, IDataQueueHandler
     {
-        /// <summary>
-        /// <inheritdoc cref="IDataAggregator"/>
-        /// </summary>
-        private readonly IDataAggregator _dataAggregator;
-
-        /// <summary>
-        /// <inheritdoc cref="EventBasedDataQueueHandlerSubscriptionManager"/>
-        /// </summary>
-        private readonly EventBasedDataQueueHandlerSubscriptionManager _subscriptionManager;
+        //private readonly IDataAggregator _dataAggregator;
+        //private readonly EventBasedDataQueueHandlerSubscriptionManager _subscriptionManager;
 
         /// <summary>
         /// Returns true if we're currently connected to the Data Provider
@@ -92,10 +85,10 @@ namespace QuantConnect.Lean.DataSource.MyCustom
                 return null;
             }
 
-            var enumerator = _dataAggregator.Add(dataConfig, newDataAvailableHandler);
-            _subscriptionManager.Subscribe(dataConfig);
+            //var enumerator = _dataAggregator.Add(dataConfig, newDataAvailableHandler);
+            //_subscriptionManager.Subscribe(dataConfig);
 
-            return enumerator;
+            return null;// enumerator;
         }
 
         /// <summary>
@@ -104,8 +97,8 @@ namespace QuantConnect.Lean.DataSource.MyCustom
         /// <param name="dataConfig">Subscription config to be removed</param>
         public void Unsubscribe(SubscriptionDataConfig dataConfig)
         {
-            _subscriptionManager.Unsubscribe(dataConfig);
-            _dataAggregator.Remove(dataConfig);
+            //_subscriptionManager.Unsubscribe(dataConfig);
+            //_dataAggregator.Remove(dataConfig);
         }
 
         /// <summary>
@@ -123,9 +116,9 @@ namespace QuantConnect.Lean.DataSource.MyCustom
         /// </summary>
         public void Dispose()
         {
-            _dataAggregator?.DisposeSafely();
-            _subscriptionManager?.DisposeSafely();
-            throw new NotImplementedException();
+            //_dataAggregator?.DisposeSafely();
+            //_subscriptionManager?.DisposeSafely();
+            //throw new NotImplementedException();
         }
 
         /// <summary>

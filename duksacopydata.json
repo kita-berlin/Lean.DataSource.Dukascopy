@@ -1,0 +1,33 @@
+{
+	"description": "Load history data from Dukascopy site",
+
+	"platforms-features": [
+		{
+			"Platforms": [ "Cloud Platform", "Local Platform", "LEAN CLI" ],
+			"Download Data": [ 0, 1, 1 ],
+			"Backtesting": [ 0, 1, 1 ],
+			"Optimization": [ 0, 1, 1 ],
+			"Live Trading": [ 0, 1, 1 ]
+		}
+	],
+	"data-supported": [ "QuoteBar", ],
+	"more-information": "https://www.dukascopy.com/swiss/english/marketwatch/historical/",
+	"documentation": "",
+	"module-specification": {
+		"download": {
+			"data-types": [
+				"Quote"
+			],
+			"resolutions": [
+				"Tick"
+			],
+			"security-types": [
+				"CFD",
+			],
+			"markets": [
+				"USA",
+				"..."
+			]
+		}
+	}
+}

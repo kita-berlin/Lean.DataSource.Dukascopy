@@ -16,7 +16,7 @@ from AlgorithmImports import *
 ### <summary>
 ### Example algorithm using the custom data type as a source of alpha
 ### </summary>
-class CustomDataUniverse(QCAlgorithm):
+class DukascopyUniverseSelectionAlgorithm(QCAlgorithm):
     def Initialize(self):
         ''' Initialise the data and resolution required, as well as the cash and start-end dates for your algorithm. All algorithms must initialized. '''
 
@@ -28,7 +28,7 @@ class CustomDataUniverse(QCAlgorithm):
         self.SetCash(100000)
 
         # add a custom universe data source (defaults to usa-equity)
-        universe = self.AddUniverse(MyCustomDataUniverse, self.UniverseSelection)
+        universe = self.AddUniverse(MyDukascopyUniverseSelectionAlgorithm, self.UniverseSelection)
 
         history = self.History(universe, TimeSpan(1, 0, 0, 0))
         if len(history) != 1:

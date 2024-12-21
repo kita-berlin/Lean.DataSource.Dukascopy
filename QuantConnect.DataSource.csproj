@@ -2,16 +2,16 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>QuantConnect.DataSource</RootNamespace>
-    <AssemblyName>QuantConnect.DataSource.MyCustomDataType</AssemblyName>
+    <AssemblyName>QuantConnect.DataSource.Dukascopy</AssemblyName>
     <OutputPath>bin\$(Configuration)</OutputPath>
-    <DocumentationFile>$(OutputPath)\QuantConnect.DataSource.MyCustomDataType.xml</DocumentationFile>
+    <DocumentationFile>$(OutputPath)\QuantConnect.DataSource.Dukascopy.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="QuantConnect.Common" Version="2.5.*" />
-	  <PackageReference Include="QuantConnect.Lean.Engine" Version="2.5.*" />
+    <PackageReference Include="NodaTime" Version="3.2.0" />
     <PackageReference Include="protobuf-net" Version="3.1.33" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="SevenZip" Version="19.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,8 +21,56 @@
     <Compile Remove="DataProcessing\**" />
     <EmbeddedResource Remove="DataProcessing\**" />
     <None Remove="DataProcessing\**" />
-    <Compile Remove="Demonstration.cs" />
-    <Compile Remove="DemonstrationUniverse.cs" />
+    <Compile Remove="DukascopyAlgorithm.cs" />
+    <Compile Remove="DukascopyUniverseSelectionAlgorithm.cs" />
     <None Remove=".gitignore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Python.Runtime">
+      <HintPath>..\Lean\Launcher\bin\Debug\Python.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.Algorithm">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.Algorithm.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.Algorithm.Framework">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.Algorithm.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.AlgorithmFactory">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.AlgorithmFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.Api">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.Brokerages">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.Brokerages.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.Common">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.Compression">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.Configuration">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.Indicators">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.Indicators.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.Lean.Engine">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.Lean.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.Logging">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.Messaging">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.Optimizer">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.Optimizer.dll</HintPath>
+    </Reference>
+    <Reference Include="QuantConnect.Queues">
+      <HintPath>..\Lean\Launcher\bin\Debug\QuantConnect.Queues.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

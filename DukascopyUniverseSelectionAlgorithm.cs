@@ -23,7 +23,7 @@ namespace QuantConnect.Algorithm.CSharp
     /// <summary>
     /// Example algorithm using the custom data type as a source of alpha
     /// </summary>
-    public class CustomDataUniverse : QCAlgorithm
+    public class DukascopyUniverseSelectionAlgorithm : QCAlgorithm
     {
         /// <summary>
         /// Initialise the data and resolution required, as well as the cash and start-end dates for your algorithm. All algorithms must initialized.
@@ -38,15 +38,15 @@ namespace QuantConnect.Algorithm.CSharp
             SetCash(100000);
 
             // add a custom universe data source (defaults to usa-equity)
-            var universe = AddUniverse<MyCustomDataUniverse>(data =>
+            var universe = AddUniverse<MyDukascopyUniverseSelectionAlgorithm>(data =>
             {
-                foreach (MyCustomDataUniverse datum in data)
+                foreach (MyDukascopyUniverseSelectionAlgorithm datum in data)
                 {
                     Log($"{datum.Symbol},{datum.SomeCustomProperty},{datum.SomeNumericProperty}");
                 }
 
                 // define our selection criteria
-                return from MyCustomDataUniverse d in data
+                return from MyDukascopyUniverseSelectionAlgorithm d in data
                        where d.SomeCustomProperty == "buy"
                        select d.Symbol;
             });

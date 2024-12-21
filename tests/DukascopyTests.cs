@@ -27,7 +27,7 @@ using QuantConnect.DataSource;
 namespace QuantConnect.DataLibrary.Tests
 {
     [TestFixture]
-    public class MyCustomDataTypeTests
+    public class DukascopyTests
     {
         [Test]
         public void JsonRoundTrip()
@@ -87,7 +87,7 @@ namespace QuantConnect.DataLibrary.Tests
 
         private BaseData CreateNewInstance()
         {
-            return new MyCustomDataType
+            return new Dukascopy
             {
                 Symbol = Symbol.Empty,
                 Time = DateTime.Today,
