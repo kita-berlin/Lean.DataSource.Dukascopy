@@ -129,6 +129,14 @@ namespace QuantConnect.DataSource
             return "";
         }
 
+        /// <summary>
+        /// Reset current index to 0
+        /// </summary>
+        static public void ResetCurrentHour()
+        {
+            ndx = 0;
+        }
+
         static private MemoryStream Decode(Stream inStream, out string error)
         {
             MemoryStream outStream = new MemoryStream();

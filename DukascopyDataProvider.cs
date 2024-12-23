@@ -23,7 +23,7 @@ using System.Collections.Generic;
 using QuantConnect.Lean.Engine.DataFeeds;
 using QuantConnect.Lean.Engine.HistoricalData;
 
-namespace QuantConnect.Lean.DataSource.MyCustom
+namespace QuantConnect.Lean.DataSource.Dukascopy
 {
     /// <summary>
     /// Implementation of Custom Data Provider
